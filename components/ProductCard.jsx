@@ -1,3 +1,4 @@
+"use client";
 import React, { useState } from "react";
 import { AiOutlinePlus, AiOutlineMinus } from "react-icons/ai";
 
@@ -10,7 +11,7 @@ const ProductCard = ({ index, payload }) => {
           style={{ borderRadius: "5px" }}
           className="w-[200px] h-[200px] object-cover "
           alt=""
-          src={"/auth_images/oil.png"}
+        src={"/auth_images/oil.png"}
         />
         <div className="flex flex-col ml-4">
           <h3 className="font-large">Lush Locks Hair Oil</h3>
@@ -25,7 +26,7 @@ const ProductCard = ({ index, payload }) => {
             <div className="rounded-3xs bg-whitesmoke flex items-center h-10">
               <div className="flex items-center justify-between w-32 bg-gray-900">
                 <div className="w-1/3 h-10 bg-neutral-800 text-white rounded-l-lg  flex items-center justify-center ">
-                  <AiOutlinePlus />
+                  <AiOutlinePlus onClick={()=>{setQuantity(quantity+1)}} />
                 </div>
                 <input
                   type="number"
@@ -35,7 +36,7 @@ const ProductCard = ({ index, payload }) => {
                   className="w-1/3 min-w-12 h-10 text-black pl-4 bg-transparent"
                 />
                 <div className="w-1/3 h-10  rounded-r-lg bg-neutral-800 text-white  flex items-center justify-center ">
-                  <AiOutlineMinus />
+                  <AiOutlineMinus  onClick={()=>{quantity < 2 ? null :  setQuantity(quantity-1)}} />
                 </div>
               </div>
             </div>
