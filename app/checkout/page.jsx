@@ -21,7 +21,8 @@ const Checkout = () => {
 
   useEffect(() => {
     const width = window.innerWidth;
-    setIsMobile(width <= 768);
+    setIsMobile(width <= 1200);
+    console.log(width <= 1200)
   }, []);
 
   useMemo(()=>{
@@ -48,7 +49,7 @@ const Checkout = () => {
           
         {/* Product cards */}
         <h1 className="text-xl text-black w-full text-start mb-2">Order Summary</h1>
-        <div className={`${checkout?'grid grid-cols-2':'flex flex-col'}`}>
+        <div className={`${checkout?`${isMobile ? 'flex flex-col-reverse justify-around gap-4 items-center' : 'grid grid-cols-2'}` :'flex flex-col'}`}>
         <div className={`flex flex-row flex-wrap min-h-screen w-full col-start-1 content-baseline gap-8`}>
           {[{},{},{},{}].map((_, index) => (
             <ProductCard key={index} payload={_}/>
